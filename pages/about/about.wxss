@@ -1,0 +1,5 @@
+/* pages/about/about.wxss */
+.title{
+  color: crimson;
+  font-size: 25px;
+}
