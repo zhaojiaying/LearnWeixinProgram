@@ -1,17 +1,55 @@
 {
-  "pages": [
-    "pages/home/home",
-    "pages/category/category",
-    "pages/about/about",
-    "pages/index/index",
-    "pages/logs/logs"
-  ],
-  "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle": "black"
-  },
-  "style": "v2",
-  "sitemapLocation": "sitemap.json"
+	"pages": [
+		"pages/viewInfo/viewInfo",
+		"pages/button/button",
+		"pages/text/text",
+		"pages/home/home",
+		"pages/about/about",
+		"pages/logs/logs"
+
+	],
+	"window": {
+		"navigationBarBackgroundColor": "#ff6743",
+		"navigationBarTitleText": "我的小程序",
+		"navigationBarTextStyle": "white",
+		"backgroundColor": "#ff9802",
+		"enablePullDownRefresh": false,
+		"backgroundTextStyle": "dark"
+	},
+	"tabBar": {
+		"list": [
+			{
+				"pagePath": "pages/home/home",
+				"text": "登录",
+				"iconPath": "assets/tabbar/1.png",
+				"selectedIconPath": "assets/tabbar/1_active.png"
+			},
+			{
+				"pagePath": "pages/viewInfo/viewInfo",
+				"text": "视图view",
+				"iconPath": "assets/tabbar/2.png",
+				"selectedIconPath": "assets/tabbar/2_active.png"
+			},
+			{
+				"pagePath": "pages/about/about",
+				"text": "关于",
+				"iconPath": "assets/tabbar/3.png",
+				"selectedIconPath": "assets/tabbar/3_active.png"
+			},
+			{
+				"pagePath": "pages/text/text",
+				"text": "文本text",
+				"iconPath": "assets/tabbar/3_active.png",
+				"selectedIconPath": "assets/tabbar/3.png"
+			},
+			{
+				"pagePath": "pages/button/button",
+				"text": "按钮button",
+				"iconPath": "assets/tabbar/2_active.png",
+				"selectedIconPath": "assets/tabbar/2.png"
+			}
+		]
+	},
+	"style": "v2",
+	"sitemapLocation": "sitemap.json"
 }

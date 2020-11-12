@@ -1,0 +1,19 @@
+<!--pages/text/text.wxml-->
+<!-- 1.text的基本使用 -->
+<text>Hello World \n</text>
+<text>你好小程序 \n</text>
+
+<!-- 2.默认情况下text中的文本长按是不能选中的默认是false，设定selectable:true 即可选中-->
+<!-- 注意引号里要加{{}}，否则赋值的是字符串 -->
+<text selectable="{{true}}">可选中的Hello World \n<navigation-bar></navigation-bar></text>
+
+
+<!-- 3.space决定文本空格大小，ensp中文字符空格一半大小，emsp中文字符空格大小，nbsp根据字体设置的空格大小 -->
+<text>Hello World\n</text>
+<text space="nbsp">Hello World\n</text>
+<text space="ensp">Hello World\n</text>
+<text space="emsp">Hello World\n</text>
+
+<!-- 4.decode属性：是否解码文本 -->
+<text>5 &gt; 3 \<native-component></native-component></text>
+<text decode>5 &gt; 3</text>
