@@ -1,0 +1,124 @@
+<!--pages/component/component.wxml-->
+
+<!-- 一、text的使用 -->
+<!-- 1.text的基本使用 -->
+<text>Hello World \n</text>
+<text>你好小程序 \n</text>
+
+<!-- 2.默认情况下text中的文本长按是不能选中的默认是false，设定selectable:true 即可选中-->
+<!-- 注意引号里要加{{}}，否则赋值的是字符串 -->
+<text selectable="{{true}}">可选中的Hello World \n<navigation-bar></navigation-bar></text>
+
+<!-- 3.space决定文本空格大小，ensp中文字符空格一半大小，emsp中文字符空格大小，nbsp根据字体设置的空格大小 -->
+<text>Hello World\n</text>
+<text space="nbsp">Hello World\n</text>
+<text space="ensp">Hello World\n</text>
+<text space="emsp">Hello World\n</text>
+
+<!-- 4.decode属性：是否解码文本 -->
+<text>5 &gt; 3 \<native-component></native-component></text>
+<text decode>5 &gt; 3</text>
+
+
+
+
+
+
+
+
+<!-- 二、button的使用 -->
+<!-- 1.button的基本使用 -->
+<button>按钮</button>
+
+<!-- 2.size属性：mini -->
+<button size="mini">按钮</button>
+<button size="mini">按钮</button>
+
+<!-- 3.type属性： -->
+<button size="mini" type="primary">按钮</button>
+<button size="mini" type="default">按钮</button>
+<button size="mini" type="warn">按钮</button>
+
+<!-- 4.plain:镂空效果 -->
+<button size="mini" plain>按钮</button>
+
+<!-- 5.disable 不可用 -->
+<button size="mini" disabled>按钮</button>
+
+<!-- 6.loading -->
+<button size="mini" loading="{{isLoading}}" bindtap="click">按钮</button>
+
+<!-- 7.hover-class 按钮点下去的样式 class在wxss中写样式-->
+<button hover-class='pressed'>按钮</button>
+
+<!-- open-type用户获取一些特殊性的权限，可以绑定一些特殊的事件
+	contact 打开客服会话，如果用户在会话中点击消息卡片后返回小程序，可以从bindcontact回调中获得具体信息
+	share 触发用户转发
+	getPhoneNumber 获取用户手机号，可以从bindgetphonenumber回调中获取到用户信息
+	getUserInfo 获取用户信息，可以从bindgetuserinfo回调中获取到用户信息
+ -->
+ <view>
+	<button size="mini" open-type="contact" bindcontact="onContact">客服会话</button>
+	<button size="mini" open-type="share">程序分享</button>
+	<button size="mini" open-type="getPhoneNumber" bindgetphonenumber="onGetPhoneNumber">获取电话</button>
+	<button size="mini" open-type="getUserInfo" bindgetuserinfo="onGetUserInfo">用户信息</button>
+</view>
+
+
+
+
+
+
+
+
+<!-- 三、view容器组件，块级元素独占一行 -->
+<!-- 1.view的基本使用 -->
+<view class="box">哈哈哈</view>
+<view>呵呵呵</view>
+
+<!-- 2.hover-class 当用户按下组件时，显示的样式 -->
+<!-- 3.hover-stay-time 手指松开后点击态保留时间，单位毫秒，默认400毫秒 -->
+<view class="box1" hover-class="hover-view" hover-stay-time="{{600}}">box1</view>
+
+<!-- 4.hover-stop-propagation 阻止祖先节点出现点击态 -->
+<view class="box2" hover-class="hover-view2">
+	<view class="box1" hover-class="hover-view" hover-stay-time="{{600}}" hover-stop-propagation="{{true}}">box1</view>
+</view>
+
+
+
+
+
+
+
+
+<!-- 四、图像image使用 -->
+<!-- 1.image的基本使用： 
+	重点： 
+		1.image组件可以写成单标签，也可以修改成双标签
+		2.image组件默认有自己的大小 320*240		
+		3.image组件是一个行内块级元素（inline-block）
+-->
+<image/>
+
+<!-- 2. src本地路径/远程地址 -->
+<image src='../../assets/pic/test.jpg'></image>
+<image src='/assets/pic/test.jpg'></image>
+<image src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2488102644,4095521058&fm=26&gp=0.jpg"/>
+<!-- 补充：显示相册中的图片 -->
+<button bindtap="handleChooseAlbum">选择相册</button>
+<image src="{{imagePath}}" />
+
+
+<!-- 3. bindload当图片载入完毕时触发 -->
+<!-- 4. lazy-load懒加载，在即将进入一定范围（上下三屏）时才开始加载, 默认false -->
+<view>...............................................................................</view>
+<image wx:for="{{10}}"  src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2488102644,4095521058&fm=26&gp=0.jpg"	bindload="handleImageLoad" lazy-load="{{true}}"/>
+
+
+<!-- 5. show-menu-by-longpress 开启长按图片显示识别小程序码菜单-->
+<image src="/assets/pic/test.jpg" show-menu-by-longpress />
+
+<!-- 6.mode用法 -->
+
+

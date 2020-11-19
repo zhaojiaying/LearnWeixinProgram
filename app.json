@@ -1,12 +1,9 @@
 {
 	"pages": [
-		"pages/viewInfo/viewInfo",
-		"pages/button/button",
-		"pages/text/text",
+		"pages/component/component",
 		"pages/home/home",
 		"pages/about/about",
 		"pages/logs/logs"
-
 	],
 	"window": {
 		"navigationBarBackgroundColor": "#ff6743",
@@ -25,8 +22,8 @@
 				"selectedIconPath": "assets/tabbar/1_active.png"
 			},
 			{
-				"pagePath": "pages/viewInfo/viewInfo",
-				"text": "视图view",
+				"pagePath": "pages/component/component",
+				"text": "组件",
 				"iconPath": "assets/tabbar/2.png",
 				"selectedIconPath": "assets/tabbar/2_active.png"
 			},
@@ -35,18 +32,6 @@
 				"text": "关于",
 				"iconPath": "assets/tabbar/3.png",
 				"selectedIconPath": "assets/tabbar/3_active.png"
-			},
-			{
-				"pagePath": "pages/text/text",
-				"text": "文本text",
-				"iconPath": "assets/tabbar/3_active.png",
-				"selectedIconPath": "assets/tabbar/3.png"
-			},
-			{
-				"pagePath": "pages/button/button",
-				"text": "按钮button",
-				"iconPath": "assets/tabbar/2_active.png",
-				"selectedIconPath": "assets/tabbar/2.png"
 			}
 		]
 	},

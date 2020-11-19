@@ -1,11 +1,11 @@
-// pages/button/button.js
+// pages/viewInfo/viewInfo.js
 Page({
 
 	/**
 	 * 页面的初始数据
 	 */
 	data: {
-			isLoading: false
+		imagePath: ''
 	},
 
 	click(){
@@ -23,6 +23,27 @@ Page({
 	onGetUserInfo(e){
 		console.log(e)
 	},
+
+	/* 选择相册图片 */
+	handleChooseAlbum(){
+		console.log('......');
+		wx.chooseImage({
+			success: res => {  //如果使用function(res){....this不能指代page } , 需要使用 res=>
+				console.log(res)
+				//1.取出路径
+				const path = res.tempFilePaths[0]
+				//设置变量值
+				this.setData({
+					imagePath: path
+				})
+			},
+		})
+	},
+
+	handleImageLoad(){
+		console.log('图片加载完成')
+	},
+
 	/**
 	 * 生命周期函数--监听页面加载
 	 */

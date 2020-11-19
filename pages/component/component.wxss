@@ -1,0 +1,31 @@
+/* pages/viewInfo/viewInfo.wxss */
+.pressed{
+	background: rosybrown;
+	color: white;
+}
+
+.box{
+	background: red;
+}
+
+.box1{
+	width:	100px;
+	height: 100px;
+	background: thistle;
+	color: rgb(224, 140, 125);
+}
+.hover-view{
+	background: orange;
+	color: white;
+	font-size: 30px;
+}
+.box2{
+	width:	200px;
+	height: 200px;
+	background: blue;
+	margin-top: 20px;
+}
+.hover-view2{
+	background: green;
+	font-size: 30px;
+}
