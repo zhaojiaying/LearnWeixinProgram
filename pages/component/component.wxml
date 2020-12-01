@@ -61,7 +61,7 @@
 	<button size="mini" open-type="contact" bindcontact="onContact">客服会话</button>
 	<button size="mini" open-type="share">程序分享</button>
 	<button size="mini" open-type="getPhoneNumber" bindgetphonenumber="onGetPhoneNumber">获取电话</button>
-	<button size="mini" open-type="getUserInfo" bindgetuserinfo="onGetUserInfo">用户信息</button>
+	<!-- <button size="mini" open-type="getUserInfo" bindgetuserinfo="onGetUserInfo">用户信息</button> -->
 </view>
 
 
@@ -120,5 +120,77 @@
 <image src="/assets/pic/test.jpg" show-menu-by-longpress />
 
 <!-- 6.mode用法 -->
+<view wx:for-items="{{array}}" wx:for-item="item">
+	<view>{{item.text}}</view>
+	<view class="section__ctn">
+		<image style="width: 200px; height: 200px; background-color: #eeeeee;" mode="{{item.mode}}" src="{{src}}"/>
+	</view>
+</view>
 
 
+
+
+
+<!-- 五、input组件 -->
+<!-- 1.input的基本使用:默认背景是透明，边框是透明的 -->
+<input/>
+
+<!-- 2.value：input中的默认值 -->
+<input value='哈哈哈'/>
+
+<!-- 3.type:决定键盘类型（英文字母+其他符号/数字/身份证） -->
+<input type="number"/> <!-- 弹出的键盘类型为数字键盘 -->
+<input type="text"/>   <!-- 弹出的键盘类型为文本键盘 -->
+<input type="idcard"/> <!-- 弹出的键盘类型为身份证号的键盘 -->
+<input type="digit"/>  <!-- 弹出的键盘类型为可以输入小数点的数字键盘 -->
+
+<!-- 4.password: 暗文 -->
+<input password/>
+
+<!-- 5.placeholder: 占位文字-->
+<input placeholder="请输入内容"/>
+
+<!-- 6.maxlength: 最大输入长度，默认140， 值为-1则不限制 -->
+<input maxlength="-1"/>
+
+<!-- 7.confirm-type :设置键盘右下角按钮的文字，仅在type='text'时生效 -->
+<!-- send发送，search搜索，next下一个，go前往，done完成 -->
+<input type="text" confirm-type="search"/>
+
+<!-- 8.input绑定事件: bindkeyboardheightchange键盘高度发生变化的时候触发此事件 -->
+<input bindkeyboardheightchange="handleInput"/>
+<!-- bindfocus获取焦点绑定事件，bindinput内容输入绑定事件，bindblur失去焦点绑定事件-->
+<input bindfocus="handleFocus" bindinput="handleInput" bindblur="handleBlur"/>
+
+
+
+
+
+
+<!-- 六、scroll-view 实现局部滚动 -->
+<!-- 1.水平滚动 scroll-x -->
+<scroll-view class="container1" scroll-x="{{true}}">
+	<view wx:for="{{10}}" class="item1">{{item}}</view>
+</scroll-view>
+
+<!-- 2.垂直滚动 scroll-y -->
+<!-- 3.滚动绑定事件 bindscroll -->
+<!-- upper-threshold距顶部/左边多远时，触发事件； lower-threshold距底部/右边多远时，触发事件 -->
+<scroll-view class="container2" scroll-y="{{true}}" bindscroll="handleScroll">
+	<view wx:for="{{10}}" class="item2">{{item}}</view>
+</scroll-view>
+
+
+
+
+
+
+<!-- 七、共同属性 -->
+<!-- 所有wxml标签（组件）都支持的属性称之为共同属性 -->
+<!-- 	id:整个页面唯一；  样式时使用id选择器  #id名{}
+			class在对应的WXSS中定义的样式类；
+			style可以动态设置的内联样式；
+			hidden所有组件默认显示；
+			data-* 组件上触发的事件时，会发送给事件处理函数
+			bind*/catch* 组件的事件
+-->

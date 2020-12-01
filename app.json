@@ -1,5 +1,6 @@
 {
 	"pages": [
+		"pages/style/style",
 		"pages/component/component",
 		"pages/home/home",
 		"pages/about/about",
@@ -20,6 +21,12 @@
 				"text": "登录",
 				"iconPath": "assets/tabbar/1.png",
 				"selectedIconPath": "assets/tabbar/1_active.png"
+			},
+			{
+				"pagePath": "pages/style/style",
+				"text":"样式",
+				"iconPath": "assets/tabbar/1_active.png",
+				"selectedIconPath": "assets/tabbar/1.png"
 			},
 			{
 				"pagePath": "pages/component/component",

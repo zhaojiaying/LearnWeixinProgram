@@ -1,0 +1,26 @@
+/* pages/style/style.wxss */
+/* .box{
+	color: blue;
+	font-size: 30px;  放到stylecss包下
+} */
+@import 'stylecss/box.wxss';
+/* @import './stylecss/box.wxss'; */
+@import 'stylecss/weui-searchbar.wxss';
+
+.content{
+	background: purple;
+}
+
+.viewrpx{
+	background: orange;
+	width:300rpx;
+	height:300rpx;
+}
+
+.box{
+	color:blue;
+}
+
+.active{
+	color:blueviolet;
+}

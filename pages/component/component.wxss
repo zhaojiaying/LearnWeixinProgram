@@ -29,3 +29,40 @@
 	background: green;
 	font-size: 30px;
 }
+
+.section__ctn{
+	text-align: center;
+}
+
+input{
+	border: 1px solid blue;
+	margin: 10px 30px;
+}
+
+.container1{
+	background: yellowgreen;
+	white-space: nowrap;
+}
+
+.item1{
+	color: white;
+	width: 100px;
+	height: 100px;
+	background: rgb(34, 129, 10);
+	margin: 10px;
+	display: inline-block;
+}
+
+.container2{
+	background: yellowgreen;
+	height: 220px;
+	margin-top: 20px;
+}
+
+.item2{
+	color: white;
+	height: 100px;
+	background: rgb(34, 129, 10);
+	margin: 10px;
+}
+

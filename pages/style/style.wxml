@@ -1,0 +1,162 @@
+<!--pages/style/style.wxml-->
+
+<!-- 1.设置样式三种写法 -->
+<!-- 1.1 行内（内联）样式 -->
+<view style="key1:value1; key2:value2">哈哈哈</view>
+<view style="color:red; font-size:32px">哈哈哈</view>
+
+<!-- 1.2 页内样式 -->
+<view class='box'>呵呵呵</view>
+
+<!-- 1.3 全局样式，container写在全局app.wxss中 -->
+<view class="container">嘿嘿嘿</view>
+
+<!-- 2.三种样式作用于同一个组件 -->
+<!-- 优先级：行内样式 > 业内样式 > 全局样式 -->
+<view style="background:red" class="content">嘻嘻嘻</view>
+
+<!-- 3.wxss的扩展单位 rpx: 对不同的屏幕根据比例来适配 -->
+<!-- 前端需要配置尺寸的适配：em/rem/vw/vh -->
+<view class="viewrpx"> </view>
+
+
+<!-- 4.使用官方的样式库开发一个搜索框, https://github.com/Tencent/weui-wxss -->
+<view class="weui-search-bar {{inputShowed ? 'weui-search-bar_focusing' : ''}}" id="searchBar">
+	<form class="weui-search-bar__form">
+		<view class="weui-search-bar__box">
+			<i class="weui-icon-search"></i>
+			<input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}"
+				bindinput="inputTyping" />
+			<span class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput"></span>
+		</view>
+		<label class="weui-search-bar__label" bindtap="showInput">
+			<i class="weui-icon-search"></i>
+			<span class="weui-search-bar__text">搜索</span>
+		</label>
+	</form>
+	<view class="weui-search-bar__cancel-btn" bindtap="hideInput">取消</view>
+</view>
+
+<!-- ============================================  -->
+<!-- 1.wxml格式 -->
+<div></div>
+<view></view>
+<button></button>
+<!-- 2.区分大小写 -->
+<!-- 3.mustache语法 -->
+<view>你好，小程序</view>
+<view>{{message}}</view>
+<view>{{firstname}} {{lastname}}</view>
+<view>{{firstname+" "+lastname}}</view>
+<!-- 三目运算符 -->
+<view>{{age>=18?'成年人':'未成年人'}}</view>
+<view>{{nowTime}}</view>
+<!-- 绑定属性 -->
+<button size="mini" bindtap="switchColor">切换颜色</button>
+<view class='box {{isActive?"active":""}}'>哈哈哈</view>
+
+<!-- 逻辑判断 wx:if -- wx:elif -- wx:else -->
+<!-- 当条件为true是，view组件会渲染出来，为false时不渲染 -->
+<view wx:if="{{true}}">是否渲染的内容</view>
+<!-- 根据按钮点击，决定是否渲染 -->
+<button size="mini" bindtap="onToggle">切换</button>
+<view wx:if="{{isShow}}">我是内容哈哈哈</view>
+<!-- 也可以有多个条件，多个条件判断 -->
+<button size="mini" bindtap="onIncrement">+5</button>
+<button size="mini" bindtap="onDecrement">-2</button>
+<view wx:if="{{score>90}}">优秀:{{score}}</view>
+<view wx:elif="{{score>80}}">良好:{{score}}</view>
+<view wx:elif="{{score>60}}">及格:{{score}}</view>
+<view wx:else>不及格:{{score}}</view>
+
+<!-- hidden属性:和wx:if有什么区别？ -->
+<!--
+	hidden 将一个组件隐藏起来时，该组件依然是存在的（display：none）
+	wx:if  将一个组件隐藏起来时，该组件根本不存在（压根没有创建）
+	选择：
+		如果显示和隐藏切换的频率非常高，选择使用hidden
+		如果显示和隐藏切换的频率非常低，那么选择wx:if
+-->
+<view hidden="{{true}}">我是hidden属性控制的内容</view>
+<view wx:if="{{false}}">我是wx:if属性控制的内容</view>
+
+<!-- 列表渲染：wx:for基础 -->
+<!-- 1.遍历一个数组 -->
+<view wx:for="{{['abc','cba','nba']}}" wx:key="*this">{{index}}.{{item}}</view>
+<!-- 2.遍历一个字符串 -->
+<view wx:for="abcd" wx:key="*this">{{index}}.{{item}}</view>
+<!-- 3.遍历一个数字 -->
+<view wx:for="{{5}}" wx:key="*this">{{index}}.{{item}}</view>
+<!-- 4.给item，index起名字 -->
+<view wx:for="{{movies}}" wx:for-item="movie" wx:key="*this" wx:for-index="i">{{i}} {{movie}}</view>
+<block wx:for="{{nums}}" wx:for-item="row" wx:key="*this">
+	<block wx:for="{{row}}" wx:for-item="col" wx:key="*this">
+		<view>{{col}}</view>
+	</block>
+</block>
+<!-- 5.key的作用 -->
+<view>
+	<view wx:for="{{letters}}" wx:key="id">{{item}} {{item.id}} {{item.name}}</view>
+</view>
+
+
+
+<!-- 之前的时候小程序不支持自定义组件，为了进行代码的复用：template -->
+<!-- 模板中包裹的内容，在没有被使用前，是不会进行任何的渲染的 -->
+<!-- <template name="containerItem">
+	<button size="mini">{{btnText}}</button>
+	<view>{{content}}</view>
+</template> -->
+<!-- wxml的引入 -->
+<!-- 小程序wxml中提供了两种引入文件的方式：import 和 include 绝对路径和相对路径都可以-->
+<!-- 模板不能循环导入，比如template模板中不能import模板之后再wxml中引入最外层模板 -->
+<import src="/wxml/template.wxml" />
+<import src="../../wxml/template.wxml" />
+
+<template is="containerItem" data="{{key1:value, key2:value2}}" />
+<template is="containerItem" data="{{btnText:'按钮', content:'呵呵'}}" />
+<template is="containerItem" data="{{btnText:'SB', content:'SB'}}" />
+
+
+
+<!-- block标签：对一些组件标签进行整体的操作，用来包裹 -->
+<!-- block不是组件，只是一个包装元素，不做任何渲染，只接受控制属性 -->
+<block wx:for="{{3}}" wx:key="*this" hidden="{{false}}">
+	<view>哈哈哈</view>
+	<button size="mini">呵呵呵</button>
+</block>
+
+<!-- ============================wxs(weixin script)================================ -->
+<!-- 1.错误写法 -->
+<!-- <view>{{25.666666666666.toFixed(2)}}</view> -->
+<!-- 2.1 wxs的定义方式:一定要写module，相当于给wxs取一个名 -->
+<!-- <wxs module="info">
+	//JS代码
+	var message = "Hello World";
+	var name = "codewhy";
+
+	var sum = function(num1,num2){
+		return num1+num2;
+	}
+	//默认wxs是私有的，要显示必须要导出,commonjs的模块化导出的写法
+	module.exports={
+		message: message,
+		name: name,
+		sum: sum
+	}
+</wxs> -->
+
+<!-- 2.2 定义在单独的wxs文件中(例子见info.wxs)，再使用<wxs>标签进行导入 -->
+<wxs src="../../wxs/info.wxs" module="info"/>
+<view>{{info.message}}</view>
+<view>{{info.sum(1,2)}}</view>
+
+
+<!-- 3.wxs的应用 -->
+<view>25.666666666666</view>
+<view>{{info.numberFix(25.666666666666, 5)}}</view>
+<view>{{info.dateFormat(time,"yyyy-MM-dd hh:mm:ss")}}</view>
+
+
+<!-- 地图：经纬度 -->
+<map class='map' longitude="116.11" latitude="39.6"></map>
