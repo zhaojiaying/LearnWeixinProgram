@@ -1,0 +1,30 @@
+<!--pages/about/about.wxml-->
+
+<!-- 1.使用自定义组件,用json中自定义的组件标签 -->
+<my-cpt></my-cpt>
+<my-cpt/>
+
+<!-- 2.页面给组件传数据，在组件的js文件的properties中写入 字段名：字段类型
+ 设置默认值的写法：
+ title:{
+	 type: String,
+	 value: '我是默认的标题'
+ }
+-->
+<my-cpt title="哈哈哈"></my-cpt>
+<my-cpt title="呵呵呵"></my-cpt>
+<my-cpt title="嘿嘿嘿"></my-cpt>
+<my-cpt></my-cpt>
+
+<!-- 3.页面给组件传样式 -->
+<my-cpt titleclass="green"></my-cpt>
+
+<!-- 4.组件给页面传自定义事件，组件内部发出事件
+	(1) 组件内部写定事件，并发出事件，写this.triggerEvent('名',{参数},{可选参数})
+	(2) 在页面的wxml中添加绑定事件 bind:triggerEvent的名
+	(3) 在页面的js文件中添加相应的方法实现
+
+	 传递的参数在页面事件方法的event.detial中体现
+-->
+<view>计数：{{counter}}</view>
+<my-event bind:increase="handleIncrement"></my-event>

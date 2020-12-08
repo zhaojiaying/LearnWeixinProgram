@@ -1,0 +1,69 @@
+<!--pages/event/event.wxml-->
+<!-- 1.事件处理的回顾 -->
+<button size="mini" bindtap="handleBtnClick">按钮1</button>
+<button size="mini" bind:tap='handleBtnClick'>按钮2</button>
+<button size="mini" catch:tap='handleBtnClick'>按钮3</button>
+
+<!-- 2.常见事件类型 -->
+<!-- 2.1 input有bindinput，bindblur，bindfocus -->
+<!-- 2.2 scroll-view有bindscrolltowpper，bindscrolltolower -->
+<!-- 2.3 大部分组件都有的常见事件类型 
+		touchstart 	手指触摸动作开始
+		touchmove 	手指触摸后移动
+		touchcancel 手指触摸动作被打断，如来电提醒，弹窗
+		touchend 		手指触摸动作结束
+		tap	 				手指触摸后马上离开
+		longpress 	手指触摸后，超过350ms再离开，如果指定了事件回调函数并触发了这个事件，tap事件将不被触发
+		longtap 		手指触摸后，超过350ms再离开（推荐使用longpress事件替代）
+		有两个注意点：
+			touchcancel：在某些特定场景下才会触发（比如来电打断等）
+			tap事件和longpress事件通常只会触发其中一个
+-->
+<view class='box'
+			bind:touchstart="handleTouchStart"
+			bind:touchmove="handleTouchMove"
+			bind:touchend="handleTouchEnd"
+			bind:tap="handleTap"
+			bind:longpress="handleLongpress">
+</view>
+
+
+<!-- 3.事件对象的分析
+	当某个事件触发时，会产生一个事件对象，并且这个对象被传入到回调函数中，事件对象常见属性：
+		type：事件类型
+		timeStamp：页面打开到触发事件所经过的毫秒数
+		target：触发事件的组件的一些属性值集合
+		currentTarget：当前组件的一些属性值集合
+		detail：额外的信息
+		touches：触摸事件，当前停留在屏幕中的触摸点信息的数组
+		changedTouches：触摸事件，当前变化的触摸点信息的数组
+-->
+<button id='btn' size="mini" bindtap="handleEventClick" bindtouchend="handleEventEnd">事件对象</button>
+<view class="outer" id="outer" bindtap="handleOuter">
+	外层的view
+	<view class="inner" id="inner" bindtap="handleInner">内层的view,外层触发（事件冒泡）</view>
+</view>
+
+
+<!-- 4.事件的传递参数，利用date- 属性传递，值在target中-->
+<view style="display: flex">
+	<block wx:for="{{titles}}" wx:key="*this">
+		<view class="itemm" 
+					bindtap="handleItemClick" 
+					data-index="{{index}}"
+					data-item="{{item}}">
+			{{item}}
+		</view>
+	</block>
+</view>
+
+
+<!-- 5.事件捕获阶段 和 事件冒泡阶段 （捕获是从外向内，冒泡从内向外）
+	bind：一层一层传递 
+	catch: 阻止事件的进一步传递
+-->
+<view class='view1' capture-bind:tap="handleCaptureView1" bindtap="handleBindView1">
+	<view class="view2" capture-bind:tap="handleCaptureView2" catchtap="handleBindView2">
+		<view class="view3" capture-bind:tap="handleCaptureView3" bindtap="handleBindView3"></view>
+	</view>
+</view>

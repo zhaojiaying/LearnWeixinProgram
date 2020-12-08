@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "my-cpt":"/component/myCpt/myCpt",
+    "my-event":"/component/cptEvent/cptEvent"
+  }
+}

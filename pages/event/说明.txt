@@ -1,0 +1,5 @@
+touches和changedTouches的区别：
+	1.touches用来记录当前有几个手指在小程序中触摸的以及对应的触摸点的信息
+	2.
+	3. 在touchend中不同
+	4. 多手指触摸时不同

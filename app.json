@@ -1,10 +1,12 @@
 {
 	"pages": [
+		"pages/customComponent/customComponent",
+		"pages/event/event",
 		"pages/style/style",
 		"pages/component/component",
 		"pages/home/home",
-		"pages/about/about",
-		"pages/logs/logs"
+		"pages/logs/logs",
+		"component/myCpt/myCpt"
 	],
 	"window": {
 		"navigationBarBackgroundColor": "#ff6743",
@@ -13,6 +15,10 @@
 		"backgroundColor": "#ff9802",
 		"enablePullDownRefresh": false,
 		"backgroundTextStyle": "dark"
+	},
+	"usingComponents": {
+		"my-cpt":"/component/myCpt/myCpt",
+		"my-cpt2":"/component/myCpt2/myCpt2"
 	},
 	"tabBar": {
 		"list": [
@@ -23,8 +29,14 @@
 				"selectedIconPath": "assets/tabbar/1_active.png"
 			},
 			{
+				"pagePath": "pages/event/event",
+				"text": "事件",
+				"iconPath": "assets/tabbar/3.png",
+				"selectedIconPath": "assets/tabbar/3.png"
+			},
+			{
 				"pagePath": "pages/style/style",
-				"text":"样式",
+				"text": "样式",
 				"iconPath": "assets/tabbar/1_active.png",
 				"selectedIconPath": "assets/tabbar/1.png"
 			},
@@ -35,10 +47,10 @@
 				"selectedIconPath": "assets/tabbar/2_active.png"
 			},
 			{
-				"pagePath": "pages/about/about",
-				"text": "关于",
-				"iconPath": "assets/tabbar/3.png",
-				"selectedIconPath": "assets/tabbar/3_active.png"
+				"pagePath": "pages/customComponent/customComponent",
+				"text": "组件化开发",
+				"iconPath": "assets/tabbar/1_active.png",
+				"selectedIconPath": "assets/tabbar/3.png"
 			}
 		]
 	},

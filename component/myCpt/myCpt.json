@@ -1,0 +1,6 @@
+{
+	"component": true,
+	"usingComponents": {
+		"my-cpt2":"/component/myCpt2/myCpt2"
+	}
+}

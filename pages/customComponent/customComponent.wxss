@@ -3,3 +3,7 @@
   color: crimson;
   font-size: 25px;
 }
+
+.green{
+  color:green;
+}

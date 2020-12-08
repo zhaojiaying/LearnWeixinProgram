@@ -1,0 +1,4 @@
+<!--component/myCpt/myCpt.wxml-->
+<view class="title titleclass">{{title}}</view>
+<view class="content">{{content}}</view>
+<my-cpt2></my-cpt2>
