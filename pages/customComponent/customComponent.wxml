@@ -28,3 +28,9 @@
 -->
 <view>计数：{{counter}}</view>
 <my-event bind:increase="handleIncrement"></my-event>
+
+
+<!-- 练习 -->
+<practice titles="{{['衣服','裤子','鞋子','帽子']}}"
+					bind:itemclick="handleTabClick">
+</practice>
