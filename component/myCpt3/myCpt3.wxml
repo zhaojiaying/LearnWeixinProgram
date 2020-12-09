@@ -1,0 +1,2 @@
+<!--component/myCpt3/myCpt3.wxml-->
+<view>组件内的计数：{{cptCount}}</view>

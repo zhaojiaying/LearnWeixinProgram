@@ -34,3 +34,8 @@
 <practice titles="{{['衣服','裤子','鞋子','帽子']}}"
 					bind:itemclick="handleTabClick">
 </practice>
+
+<!-- 5. 直接选中组件修改数据/调用方法 -->
+<button size="mini" bind:tap="handleIncreaseButton">修改组件内的数据</button>
+<!-- 组件绑定一个class或者id，任意一个就可以，推荐id -->
+<my-cpt3 class="cpt3-class" id="cpt3"/>

@@ -2,6 +2,7 @@
   "usingComponents": {
     "my-cpt":"/component/myCpt/myCpt",
     "my-event":"/component/cptEvent/cptEvent",
-    "practice":"/component/practice/practice"
+    "practice":"/component/practice/practice",
+    "my-cpt3":"/component/myCpt3/myCpt3"
   }
 }
