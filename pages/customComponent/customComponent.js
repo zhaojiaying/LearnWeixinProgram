@@ -155,5 +155,70 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+
+  /**小程序中展示弹框有四种方式*/
+  onToastClick(){
+    wx.showToast({
+      title: '你好啊',
+      duration:3000,
+      icon:"loading",
+      success:function(){
+        console.log('展示成功')
+      },
+      fail:function(){
+        console.log("展示失败")
+      },
+      complete:function(){
+        console.log("展示完成")
+      }
+    })
+  },
+
+  onModalClick(){
+    wx.showModal({
+      title:'我是标题',
+      content:'我是内容，哈哈哈',
+      //showCancel: false,是否显示取消按钮
+      //cancelText修改取消的显示文本
+      cancelText: '退出',
+      cancelColor: '#ff8800',
+      success:function(res){
+        if(res.confirm){
+          console.log('用户点击了确定');
+        }
+        if(res.cancel){
+          console.log('用户点击了取消');
+        }
+      }
+    })
+  },
+
+  onLoadingClick(){
+    wx.showLoading({
+      title: '加载ing',
+      mask: true
+    })
+    //设置定时器 ，wx.hideLoading()调用loading消失
+    setTimeout(
+      ()=>{
+        //必须手动hideLoading才会让loading消失
+        wx.hideLoading()
+      },
+      2000
+    )
+},
+
+  onActionSheetClick(){
+    wx.showActionSheet({
+      itemList: ['相册','拍照'],
+      itemColor: 'blue',
+      success: function(res){
+        console.log(res);
+      }
+    })
   }
+
+
 })

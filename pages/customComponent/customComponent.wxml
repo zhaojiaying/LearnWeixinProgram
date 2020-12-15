@@ -56,3 +56,17 @@
 	<button size="mini" slot="slot2">我是插入的按钮</button>
 	<slider slot="slot1"/> <!-- slot1的会放到slot2前面 -->
 </my-multislot>
+
+
+
+
+<!--=============================================================================================-->
+<!-- 小程序中展示弹框有四种方式：showToast，showModal，showLoading，showActionSheet -->
+<!-- 1.toast -->
+<button size="mini" bindtap="onToastClick">showToast</button>
+<!-- 2.modal -->
+<button size="mini" bindtap="onModalClick">showModal</button>
+<!-- 3.loading -->
+<button size="mini" bindtap="onLoadingClick">showLoading</button>
+<!-- 4.actionSheet -->
+<button size="mini" bindtap="onActionSheetClick">showActionSheet</button>
