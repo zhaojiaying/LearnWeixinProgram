@@ -1,4 +1,6 @@
 // pages/about/about.js
+import request from '../../service/network.js'
+
 Page({
 
   /**
@@ -41,9 +43,69 @@ Page({
 
   /**
    * 生命周期函数--监听页面加载
+   *   url:开发者服务器接口地址
+   *   data:请求的参数
+   *   header:设置请求的header，header中不能设置Referer，content-type默认为application/json文件中
+   *   method:HTTP请求方法，GET/POST
+   *   dataType：返回的数据格式
+   *   responseType：响应的数据类型
+   *   success：接口调用成功的回调函数
+   *   fail：接口调用失败的回调函数
+   *   complete：接口调用结束的回调函数
    */
   onLoad: function (options) {
+    //1、------------------原生方法发送网络请求-----------------------
+    //this.getData_origin();
 
+    //2、-----封装方法：通过network.js中的request方法发送网络请求-------
+    //promise最大的好处就是防止出现回调地域
+    request({
+      url:"http://www.baidu.com"
+    }).then(
+      res=>{
+        console.log(res)
+      }
+    ).catch(
+      err=>{
+        console.log(err)
+      }
+    )
+  },
+
+  //原生方法：发送网络请求,success回调函数
+  getData_origin(){
+    //1.发送最简单的get请求
+    wx.request({
+      url: 'http://www.baidu.com/s',
+      success:function(res){
+        console.log("request-success------",res);
+      }
+    })
+    //2.get请求，并携带参数
+    wx.request({
+      url: 'http://www.baidu.com/s',
+      data:{
+        wd:'微信'
+      },
+      success:function(res){
+        console.log("request-success------",res);
+      }
+    })
+    //3.post请求，并携带参数
+    wx.request({
+      url: 'http://httpbin.org/post',
+      method:'post',
+      data:{
+        name: "小明",
+        age: 18
+      },
+      success:function(res){
+        console.log("request-success------",res);
+      },
+      fail:function(err){
+        console.log(err);
+      }
+    })
   },
 
   /**

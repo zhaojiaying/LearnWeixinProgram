@@ -3,6 +3,8 @@
     "my-cpt":"/component/myCpt/myCpt",
     "my-event":"/component/cptEvent/cptEvent",
     "practice":"/component/practice/practice",
-    "my-cpt3":"/component/myCpt3/myCpt3"
+    "my-cpt3":"/component/myCpt3/myCpt3",
+    "my-slot":"/component/mySlot/mySlot",
+    "my-multislot":"/component/myMultiSlot/myMultiSlot"
   }
 }

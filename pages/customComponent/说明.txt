@@ -48,3 +48,63 @@
 
 七、页面直接调用组件修改数据/方法this.selectComponent("class/id名")
   可以实现，但是不推荐，不规范
+
+
+八、插槽slot
+1. 组件的插槽为了让我们封装的组件更加具有扩展性
+2. 让使用者可以决定组件内部的一些内容到底展示什么
+3.<slot/>类似于先占一个坑，之后可以在页面填充内容
+
+---------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+总结：
+methods:{
+  用于定义组件内部的函数
+}
+
+options:{
+  定义组件的配置选项
+  multipleSlots: 在使用多插槽时需要设置true
+  styleIsolation: 设置样式的隔离方式 shared,apply-shared,isolated
+}
+
+外界给组件传入额外的样式
+externalClasses:["class名"]
+
+可以监听properties/data的改变
+observers:{
+  counter: function(newVal)
+}
+
+组件中监听生命周期函数
+监听所在页面的生命周期
+pageLifetimes:{
+		show(){
+			console.log('监听组件所在页面显示出来')
+		},
+		hide(){
+			console.log('监听组件所在页面隐藏起来时')
+		},
+		resize(){
+			console.log('监听页面尺寸的改变')
+		}
+	}
+
+
+
+
+  ================================================================================================
+  网络请求
+  url:开发者服务器接口地址
+  data:请求的参数
+  header:设置请求的header，header中不能设置Referer，content-type默认为application/json文件中
+  method:HTTP请求方法，GET/POST
+  dataType：返回的数据格式
+  responseType：响应的数据类型
+  success：接口调用成功的回调函数
+  fail：接口调用失败的回调函数
+  complete：接口调用结束的回调函数
+
+网络强求---请求封装
+1.降低网络请求和wx.request的耦合度
+2.使用promise的方法进行回调

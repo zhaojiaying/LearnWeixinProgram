@@ -39,3 +39,20 @@
 <button size="mini" bind:tap="handleIncreaseButton">修改组件内的数据</button>
 <!-- 组件绑定一个class或者id，任意一个就可以，推荐id -->
 <my-cpt3 class="cpt3-class" id="cpt3"/>
+
+
+<!-- 6.插槽的使用 -->
+<!-- 6.1 单个插槽的使用 -->
+<my-slot>
+	<button size='mini'>我是slot插入的按钮</button>
+	<!-- slider的value 设置 默认起始位置 -->
+	<slider value="60"></slider>
+</my-slot>
+<!-- 6.2 多个插槽的使用 
+		注意事项：1.给每一个插槽起一个名字：name属性
+						 2.必须在component对象中添加一个选项，options:{multipleSlots:true}
+-->
+<my-multislot>
+	<button size="mini" slot="slot2">我是插入的按钮</button>
+	<slider slot="slot1"/> <!-- slot1的会放到slot2前面 -->
+</my-multislot>
