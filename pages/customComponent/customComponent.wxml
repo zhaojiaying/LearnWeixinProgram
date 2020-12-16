@@ -70,3 +70,7 @@
 <button size="mini" bindtap="onLoadingClick">showLoading</button>
 <!-- 4.actionSheet -->
 <button size="mini" bindtap="onActionSheetClick">showActionSheet</button>
+
+
+<!-- 分享按钮 open-type="share" -->
+<button size="mini" open-type="share">分享</button>

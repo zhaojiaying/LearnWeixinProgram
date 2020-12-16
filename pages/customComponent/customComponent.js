@@ -152,9 +152,16 @@ Page({
 
   /**
    * 用户点击右上角分享
+   * title 转发标题
+   * path 转发路径, 定义对方收到转发打开的页面
+   * imageUrl 自定义图片路径，可以是本地文件路径，代码包文件路径或者网络图片路径，支持PNG及JPG，显示图片宽比是5:4
    */
-  onShareAppMessage: function () {
-
+  onShareAppMessage: function (options) {
+    return {
+      title: '你好啊，李银河',
+      path: '/pages/home/home',
+      imageUrl: '/assets/pic/cat.jpg'
+    }
   },
 
 
