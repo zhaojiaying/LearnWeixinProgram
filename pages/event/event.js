@@ -1,4 +1,8 @@
 // pages/event/event.js
+//登录，可以拿到app.js中的token
+const app = getApp();
+app.globalData.token;
+
 Page({
 
 	/**
@@ -79,7 +83,19 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-
+		console.log(options);
+	},
+	/**
+	 * 生命周期函数--监听页面卸载
+	 */
+	onUnload: function () {
+		//1.获取首页的页面对象, getCurrentPages返回当前所有活跃的页面(当前栈的页面)
+		const pages = getCurrentPages();
+		const home = pages[pages.length-2];
+		//2.调用页面对象的setData，通过修改数据的形式，间接的给他传递数据
+		home.setData({
+			title:'呵呵呵'
+		})
 	},
 
 	/**
@@ -100,13 +116,6 @@ Page({
 	 * 生命周期函数--监听页面隐藏
 	 */
 	onHide: function () {
-
-	},
-
-	/**
-	 * 生命周期函数--监听页面卸载
-	 */
-	onUnload: function () {
 
 	},
 

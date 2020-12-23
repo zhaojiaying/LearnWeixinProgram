@@ -1,5 +1,6 @@
 <!--pages/style/style.wxml-->
 
+
 <!-- 1.设置样式三种写法 -->
 <!-- 1.1 行内（内联）样式 -->
 <view style="key1:value1; key2:value2">哈哈哈</view>

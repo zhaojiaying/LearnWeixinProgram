@@ -1,4 +1,9 @@
 <!--pages/event/event.wxml-->
+<navigator open-type="navigateBack">返回前一页面</navigator>
+<navigator open-type="navigateBack" delta="2">返回前前一页面</navigator>
+<!--接收home.wxml通过navigator组件传送过来的参数，在even.js的onLoad里options中 -->
+
+
 <!-- 1.事件处理的回顾 -->
 <button size="mini" bindtap="handleBtnClick">按钮1</button>
 <button size="mini" bind:tap='handleBtnClick'>按钮2</button>

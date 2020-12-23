@@ -1,10 +1,10 @@
 {
 	"pages": [
-		"pages/customComponent/customComponent",
+		"pages/home/home",
 		"pages/event/event",
+		"pages/customComponent/customComponent",
 		"pages/style/style",
 		"pages/component/component",
-		"pages/home/home",
 		"pages/logs/logs",
 		"component/myCpt/myCpt"
 	],
@@ -27,12 +27,6 @@
 				"text": "登录",
 				"iconPath": "assets/tabbar/1.png",
 				"selectedIconPath": "assets/tabbar/1_active.png"
-			},
-			{
-				"pagePath": "pages/event/event",
-				"text": "事件",
-				"iconPath": "assets/tabbar/3.png",
-				"selectedIconPath": "assets/tabbar/3.png"
 			},
 			{
 				"pagePath": "pages/style/style",

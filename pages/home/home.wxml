@@ -1,5 +1,34 @@
 <!--pages/home/home.wxml-->
 
+<!-- =========================== 页面跳转 ========================== -->
+<!-- 1.navigator页面跳转 url:跳转方式-->
+<navigator url='/pages/event/event'>跳转到事件页面，可返回</navigator>
+<!-- <navigator open-type="navigateBack">返回前一页面</navigator> -->
+<!-- 2.navigator属性：open-type：
+	默认值 navigate = wx.navigateTo 或 wx.navigateToMiniProgram
+				redirect = wx.redirectTo 关闭当前页面，跳转到应用内的某个页面。但是不允许跳转到tarbar页面，并且不能返回（不是压栈）
+				switchTab = wx.switchTab 跳转到tabBar页面，并关闭其他所有非tabBar页面（需要在tabBar中定义的）
+				reLaunch = wx.reLaunch 关闭所有页面，打开应用中某个页面（直接展示某个页面，并且可以跳转到tabBar页面）
+				navigateBack = wx.navigateBack 返回不到redirect页面和tab页面
+				exit退出小程序，target="miniProgram" 
+-->
+<navigator url="/pages/style/style" open-type="switchTab">跳转到样式页面</navigator>
+<!-- 3.navigator属性：target：在哪个目标上发生跳转，默认当前小程序 -->
+<!-- 4.navigator属性：delta：当open-type为'navigateBack'是有效，表示回退的层数 -->
+
+<!-- ===============页面跳转过程中数据的传递================================== -->
+<navigator url='/pages/event/event?name=why&age=18&height=1.88'>带参数的事件页面</navigator>
+
+
+<view> ========以上：跳转页面======== </view>
+
+
+
+
+
+
+
+
 <!-- 1.小程序的数据绑定,用双大括号表示变量Mustache语法-->
 <view>Hello {{name}}</view>
 <view>年龄：{{age}}</view>
@@ -33,3 +62,14 @@
 
 <view wx:for="{{list}}">{{item}}</view>
 <view bindtap='handleViewClick'>啦啦啦</view>
+
+
+
+
+
+
+
+
+
+
+
