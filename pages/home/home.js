@@ -54,6 +54,16 @@ Page({
   handleViewClick(){
     console.log('啦啦啦被点击了')
   },
+  
+
+  /**
+   * 利用代码进行页面跳转
+   */
+  handlePushEvent(){
+    wx.navigateTo({
+      url: '/pages/event/event',
+    })
+  },
 
   //监听页面的滚动
   onPageScroll(obj){

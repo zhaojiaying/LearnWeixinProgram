@@ -17,7 +17,10 @@
 <!-- 4.navigator属性：delta：当open-type为'navigateBack'是有效，表示回退的层数 -->
 
 <!-- ===============页面跳转过程中数据的传递================================== -->
-<navigator url='/pages/event/event?name=why&age=18&height=1.88'>带参数的事件页面</navigator>
+<navigator url='/pages/event/event?name=why&age=18&height=1.88'>带参数的事件页面跳转</navigator>
+
+<!-- ===============通过代码进行页面跳转====================================== -->
+<button size="mini" bind:tap="handlePushEvent">利用方法代码跳转到事件页面</button>
 
 
 <view> ========以上：跳转页面======== </view>

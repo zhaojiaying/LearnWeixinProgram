@@ -78,12 +78,18 @@ Page({
 		console.log('handleBindView3');
 	},
 
+	handleBackHome(){
+		wx.navigateBack({
+			delta:1
+		})
+	},
 
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-		console.log(options);
+		//navigator调转过来的参数在options中
+		console.log("onLoad",options);
 	},
 	/**
 	 * 生命周期函数--监听页面卸载

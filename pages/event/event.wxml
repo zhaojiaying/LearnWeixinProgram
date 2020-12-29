@@ -3,6 +3,8 @@
 <navigator open-type="navigateBack" delta="2">返回前前一页面</navigator>
 <!--接收home.wxml通过navigator组件传送过来的参数，在even.js的onLoad里options中 -->
 
+<!--利用代码方法实现页面返回-->
+<button size="mini" bind:tap="handleBackHome">返回</button>
 
 <!-- 1.事件处理的回顾 -->
 <button size="mini" bindtap="handleBtnClick">按钮1</button>
